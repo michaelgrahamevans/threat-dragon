@@ -49,6 +49,7 @@
     margin-top: 50px;
     margin-bottom: 15px;
     font-weight: bold;
+    white-space: normal;
 }
 
 .entity-description {
