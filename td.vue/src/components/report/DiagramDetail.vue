@@ -1,7 +1,6 @@
 <template>
     <div>
-        
-        <div class="page">
+        <b-col class="page">
             <b-row class="mt-3">
                 <b-col>
                     <h2 class="td-diagram-title">{{ diagram.title }}</h2>
@@ -34,7 +33,7 @@
             <div class="page-title print-only td-threats-title">
                 {{ diagram.title }}
             </div>
-            <div
+            <b-row
                 v-for="(entity, idx) in entitiesWithThreats"
                 :key="`print-${idx}`"
             >
@@ -45,8 +44,8 @@
                     :showMitigated="showMitigated"
                     :showEmpty="showEmpty"
                 ></td-print-report-entity>
-            </div>
-        </div>
+            </b-row>
+        </b-col>
     </div>
 </template>
 

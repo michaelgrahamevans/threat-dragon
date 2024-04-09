@@ -1,5 +1,5 @@
 <template>
-    <div class="td-threat-data no-print">
+    <b-col class="td-threat-data no-print">
         <b-row>
             <b-col>
                 <h3 class="entity-title">
@@ -23,7 +23,7 @@
                 </b-table>
             </b-col>
         </b-row>
-    </div>
+    </b-col>
 </template>
 
 <style lang="scss" scoped>
