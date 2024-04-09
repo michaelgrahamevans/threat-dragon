@@ -4,8 +4,23 @@
             {{ `${entity.data.name} (${dataType})` }}
             <em v-if="outOfScope">- {{ $t('threatmodel.properties.outOfScope') }}</em>
         </div>
-        <p class="entity-description">{{ entity.data.description }}</p>
-        <table class="table">
+        <p v-if="entity.data.description" class="entity-description">{{ entity.data.description }}</p>
+        <table v-if="propertiesData" class="table">
+            <thead>
+                <th>{{ $t("report.name") }}</th>
+                <th>{{ $t("report.value") }}</th>
+            </thead>
+            <tbody>
+                <tr
+                    v-for="(prop, idx) in propertiesData"
+                    :key="idx"
+                >
+                    <td>{{ prop.name }}</td>
+                    <td>{{ prop.value }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table v-if="threats.length > 0" class="table">
             <thead>
                 <tr>
                     <th>{{ $t('threats.properties.number') }}</th>
@@ -89,6 +104,31 @@ export default {
                 showMitigated: this.showMitigated
             });
         },
+        propertiesData: function () {
+            const boolToString = (b) => b ? this.$t("report.yes") : this.$t("report.no");
+            switch (this.entity.data.type) {
+                case "tm.Flow":
+                    return [
+                        {name: this.$t("threatmodel.properties.protocol"), value: this.entity.data.protocol},
+                        {name: this.$t("threatmodel.properties.isEncrypted"), value: boolToString(this.entity.data.isEncrypted)},
+                        {name: this.$t("threatmodel.properties.publicNetwork"), value: boolToString(this.entity.data.isPublicNetwork)},
+                    ];
+                case "tm.Process":
+                    return [
+                        {name: this.$t("threatmodel.properties.handlesCardPayment"), value: boolToString(this.entity.data.handlesCardPayment)},
+                        {name: this.$t("threatmodel.properties.handlesGoodsOrServices"), value: boolToString(this.entity.data.handlesGoodsOrServices)},
+                        {name: this.$t("threatmodel.properties.isWebApplication"), value: boolToString(this.entity.data.isWebApplication)},
+                    ];
+                case "tm.Store":
+                    return [
+                        {name: this.$t("threatmodel.properties.isALog"), value: boolToString(this.entity.data.isALog)},
+                        {name: this.$t("threatmodel.properties.isEncrypted"), value: boolToString(this.entity.data.isEncrypted)},
+                        {name: this.$t("threatmodel.properties.storesInventory"), value: boolToString(this.entity.data.storesInventory)},
+                        {name: this.$t("threatmodel.properties.storesCredentials"), value: boolToString(this.entity.data.storesCredentials)},
+                        {name: this.$t("threatmodel.properties.isSigned"), value: boolToString(this.entity.data.isSigned)},
+                    ];
+            }
+        }
     },
     methods: {
         toCamelCase(str) {

@@ -360,7 +360,11 @@ const eng = {
             openMedium: 'Open / Medium Priority',
             openLow: 'Open / Low Priority',
             openUnknown: 'Open / Unknown Priority'
-        }
+        },
+        name: "Name",
+        value: "Value",
+        yes: "Yes",
+        no: "No",
     },
     upgrade: {
         modal: {
