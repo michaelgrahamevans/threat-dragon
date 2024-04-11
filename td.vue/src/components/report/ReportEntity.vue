@@ -14,7 +14,7 @@
                 <p class="entity-description">{{ entity.data.description }}</p>
             </b-col>
         </b-row>
-        <b-row v-if="propertiesData">
+        <b-row v-if="showProperties && propertiesData">
             <b-col md="12">
                 <h4>Properties</h4>
                 <b-table
@@ -65,6 +65,10 @@ export default {
             default: true
         },
         showMitigated: {
+            type: Boolean,
+            default: true
+        },
+        showProperties: {
             type: Boolean,
             default: true
         }

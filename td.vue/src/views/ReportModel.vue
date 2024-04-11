@@ -51,6 +51,17 @@
                         <b-col>
                             <b-form-group
                                 label-cols="auto"
+                                id="properties-group">
+                                <b-form-checkbox
+                                    id="show_properties"
+                                    v-model="display.properties"
+                                >{{ $t('report.options.showProperties') }}</b-form-checkbox>
+                            </b-form-group>
+                        </b-col>
+
+                        <b-col>
+                            <b-form-group
+                                label-cols="auto"
                                 id="branding-group">
                                 <b-form-checkbox
                                     id="show_branding"
@@ -116,6 +127,7 @@
                 :showMitigated="display.mitigated"
                 :showDiagram="display.diagrams"
                 :showEmpty="display.empty"
+                :showProperties="display.properties"
             ></td-diagram-detail>
         </div>
     </div>
@@ -194,6 +206,7 @@ export default {
                 mitigated: true,
                 outOfScope: true,
                 empty: true,
+                properties: true,
                 branding: false
             },
             isElectron: isElectron()

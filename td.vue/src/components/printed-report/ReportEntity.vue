@@ -5,7 +5,7 @@
             <em v-if="outOfScope">- {{ $t('threatmodel.properties.outOfScope') }}</em>
         </div>
         <p v-if="entity.data.description" class="entity-description">{{ entity.data.description }}</p>
-        <table v-if="propertiesData" class="table">
+        <table v-if="showProperties && propertiesData" class="table">
             <thead>
                 <th>{{ $t("report.name") }}</th>
                 <th>{{ $t("report.value") }}</th>
@@ -89,6 +89,10 @@ export default {
             default: true
         },
         showMitigated: {
+            type: Boolean,
+            default: true
+        },
+        showProperties: {
             type: Boolean,
             default: true
         }

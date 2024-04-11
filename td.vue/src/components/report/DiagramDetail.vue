@@ -27,6 +27,7 @@
                     :showOutOfScope="showOutOfScope"
                     :showMitigated="showMitigated"
                     :showEmpty="showEmpty"
+                    :showProperties="showProperties"
                 ></td-report-entity>
             </b-row>
 
@@ -43,6 +44,7 @@
                     :showOutOfScope="showOutOfScope"
                     :showMitigated="showMitigated"
                     :showEmpty="showEmpty"
+                    :showProperties="showProperties"
                 ></td-print-report-entity>
             </b-row>
         </b-col>
@@ -80,6 +82,10 @@ export default {
         showEmpty: {
             type: Boolean,
             default: false
+        },
+        showProperties: {
+            type: Boolean,
+            default: true
         }
     },
     components: {
