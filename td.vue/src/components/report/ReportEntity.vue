@@ -18,6 +18,7 @@
             <b-col md="12">
                 <h4>Properties</h4>
                 <b-table
+                    class="td-properties-data"
                     :fields="propertiesFields"
                     :items="propertiesData"
                     striped
@@ -46,6 +47,12 @@
 
 .entity-title {
     white-space: normal;
+}
+</style>
+
+<style lang="scss">
+.td-properties-data thead {
+    display: none;
 }
 </style>
 
