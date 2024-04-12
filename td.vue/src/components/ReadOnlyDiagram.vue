@@ -12,6 +12,12 @@
 }
 </style>
 
+<style lang="scss">
+.td-readonly-diagram * {
+    cursor: default;
+}
+</style>
+
 <script>
 import debounce from '@/service/debounce.js';
 import diagramService from '@/service/migration/diagram.js';
