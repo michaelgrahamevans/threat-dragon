@@ -9,7 +9,6 @@
                     <h3 class="td-report-summary">{{ $t('report.summary') }}</h3>
                     <b-table
                         class="td-executive-summary-data"
-                        :fields="null"
                         :items="tableRows"
                         :tbody-tr-attr="getDataTestId"
                         striped
@@ -23,6 +22,12 @@
 <style lang="scss" scoped>
 .td-summary {
     white-space: pre-wrap;
+}
+</style>
+
+<style lang="scss">
+.td-executive-summary-data thead {
+    display: none;
 }
 </style>
 
